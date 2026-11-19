@@ -1,0 +1,8 @@
+Project dependencies for the data analysis project:
+pandas
+sqlalchemy
+psycopg2-binary
+jupyter
+matplotlib
+seaborn
+python-dotenv
