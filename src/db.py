@@ -1,11 +1,12 @@
 
 import os
 from pathlib import Path
-from sqlalchemy import event
-from psycopg2 import sql
+
 from dotenv import load_dotenv
-from sqlalchemy import create_engine, text
+from psycopg2 import sql
+from sqlalchemy import create_engine, event, text
 from sqlalchemy.engine import URL
+
 
 # Locate the project root
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
@@ -20,6 +21,7 @@ DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_SCHEMA = os.getenv("DB_SCHEMA")
+
 
 # Validate configuration
 required_vars = {
@@ -36,6 +38,7 @@ missing = [key for key, value in required_vars.items() if not value]
 if missing:
     raise ValueError(f"Missing environment variables: {missing}")
 
+
 # Construct database URL safely
 DATABASE_URL = URL.create(
     drivername="postgresql+psycopg2",
@@ -46,14 +49,16 @@ DATABASE_URL = URL.create(
     database=DB_NAME,
 )
 
+
 # Create SQLAlchemy engine
 engine = create_engine(
     DATABASE_URL,
-    connect_args={
-        "sslmode": "require",
-    },
+    connect_args={"sslmode": "require"},
     pool_pre_ping=True,
 )
+
+
+# Set PostgreSQL search path on every new connection
 @event.listens_for(engine, "connect")
 def set_search_path(dbapi_connection, connection_record):
 
@@ -63,8 +68,11 @@ def set_search_path(dbapi_connection, connection_record):
                 sql.Identifier(DB_SCHEMA)
             )
         )
+
+
 # Test database connection
 def test_connection():
+
     with engine.connect() as connection:
         result = connection.execute(
             text("""
@@ -74,28 +82,38 @@ def test_connection():
                     version()
             """)
         )
+
         return result.fetchone()
 
 
+# Test database query
+def test_query():
+
+    with engine.connect() as connection:
+        result = connection.execute(
+            text("SELECT COUNT(*) FROM orders")
+        )
+
+        return result.scalar()
+
+
+# Main entry point
 if __name__ == "__main__":
+
     print("Testing PostgreSQL connection...")
 
     try:
         result = test_connection()
+
         print("Connection successful!")
         print("Database:", result[0])
         print("Schema:", result[1])
-    except Exception as e:
-        print("Connection failed:", e)
-def test_query():
-    with engine.connect() as connection:
-        result = connection.execute(
-            text("SELECT COUNT(*) FROM ecom.orders")
-        )
-        count = result.scalar()
 
+        count = test_query()
         print(f"Total orders: {count}")
 
-if __name__ == "__main__":
-    test_connection()
-    test_query()
+    except Exception as e:
+        print("Database test failed:", e)
+
+    finally:
+        engine.dispose()
