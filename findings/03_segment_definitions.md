@@ -23,7 +23,7 @@ Revenue is measured as net monetary value after successful refunds.
 
 **Definition:** Customers with R≥4, F≥4 and M≥4.
 
-Champions represent 12.77% of customers but contribute 46.39% of net revenue. They average 11.90 purchases and have the highest average monetary value ($89,632.93).
+Champions represent 12.77% of customers but contribute 46.39% of net revenue. They average 11.90 purchases and have the highest average monetary value (₹89,632.93).
 
 **Campaign:** Prioritize retention through VIP rewards, early product access, exclusive offers and personalized recommendations. Protect this segment from churn because it contributes nearly half of total revenue.
 
@@ -57,4 +57,6 @@ These 1,141 customers represent 18.85% of the base and contribute 18.02% of reve
 
 **Definition:** Customers with R≤2, F≤2 and M≤2.
 
-Lost customers
+Lost customers represent 20.21% of the customer base (1,223 customers) but contribute only 2.80% of net revenue. They average 1.13 purchases and have low monetary scores, indicating limited historical engagement and spending.
+
+**Campaign:** Avoid expensive reactivation incentives. Use low-cost email campaigns or limited-time offers to test renewed interest. Prioritize customers who demonstrate engagement rather than allocating substantial marketing spend across the entire group.
