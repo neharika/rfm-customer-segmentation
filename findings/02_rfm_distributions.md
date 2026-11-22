@@ -103,7 +103,7 @@ The mean is substantially higher than the median, indicating a strongly right-sk
 
 Seventeen customers have zero net Monetary because their successful refunds fully offset their delivered order value. These customers remain in the final RFM dataset.
 
-The logarithmic-scale histogram provides a clearer view of spending across the wide range of values, while the linear-scale histogram highlights the effect of high-spending customers on the overall distribution.
+The full distribution uses a logarithmic Y-axis to make the long tail more visible. A separate linear-scale zoomed view, limited to ₹100,000, provides greater detail on the spending distribution among the majority of customers.
 
 **Business implication:** The difference between average and median spending suggests that high-value customers deserve attention in retention strategies. The spending distribution also provides a basis for identifying potential opportunities to increase customer value.
 
@@ -113,12 +113,12 @@ Customer revenue concentration analysis examines how much net delivered revenue 
 
 | Customer Group | Number of Customers | Net Revenue Contribution |
 |---|---:|---:|
-| Top 10% | 606 | 48.05% |
-| Top 20% | 1,211 | 65.32% |
+| Top 10% | 605 | 48.01% |
+| Top 20% | 1,210 | 65.30% |
 | Top 50% | 3,026 | 90.52% |
 | Bottom 50% | 3,026 | 9.48% |
 
-The findings indicate that net revenue is concentrated among a relatively small proportion of customers. The top 20% contribute approximately 65.32% of net delivered revenue, while the bottom 50% contribute only 9.48%.
+The findings indicate that net revenue is concentrated among a relatively small proportion of customers. The top 20% contribute approximately 65.30% of net delivered revenue, while the bottom 50% contribute only 9.48%.
 
 **Business implication:** Maintaining relationships with high-value customers is important for protecting revenue. Lower-spending customers may represent an opportunity for growth through targeted engagement and repeat-purchase initiatives.
 
@@ -142,7 +142,6 @@ This indicates that high-value customers generate greater spending through both 
 
 **Business implication:** Retention strategies for high-value customers are important for protecting revenue. Encouraging repeat purchases among the remaining customer base may also provide opportunities to increase customer value.
 
-*Note: The customer count in this comparison uses a rounded 10% cutoff of 605 customers. The separate revenue concentration analysis uses 606 customers for its top-decile grouping.*
 
 ## 7. Overall Business Observations
 
@@ -151,7 +150,7 @@ The RFM analysis reveals several important patterns:
 1. **One-time buyers dominate:** Approximately half of the customers placed only one delivered order.
 2. **Repeat purchases are concentrated:** A relatively small group of high-frequency customers contributes a substantial share of total order volume.
 3. **Spending is highly uneven:** The mean net spending is more than twice the median, indicating a long right tail.
-4. **Revenue concentration is significant:** The top 20% of customers contribute approximately 65% of net delivered revenue.
+4. **Revenue concentration is significant:The top 20% of customers contribute 65.30% of net delivered revenue, while the bottom 50% contribute only 9.48%.
 5. **Customer activity varies:** Recency ranges from 1 to 91 days, providing an opportunity to distinguish recently active customers from those who may need re-engagement.
 
 These findings demonstrate considerable variation in customer purchasing behaviour across Recency, Frequency and Monetary.
