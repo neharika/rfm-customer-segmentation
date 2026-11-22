@@ -8,9 +8,11 @@ Among purchasing customers, the average number of delivered orders is 3.30, whil
 
 ## How much do they spend?
 
-Among the 6,052 purchasing customers, average delivered spending is ₹21,052.49, while median spending is ₹9,696. The substantial difference indicates a strongly right-skewed spending distribution: a relatively small group of high-spending customers pulls the average upward.
+Among the 6,052 purchasing customers, average net delivered spending is ₹24,681.02, while median spending is ₹11,326.82. The substantial difference indicates a strongly right-skewed spending distribution, where a relatively small group of high-spending customers pulls the average upward.
 
-Spending is also highly concentrated. The top 10% of purchasing customers (606 people) account for 47.98% of total spending. The top 20% contribute 65.22%, and the top 50% contribute 90.47%. The bottom half of purchasing customers therefore accounts for only 9.53% of spending.
+The 25th percentile of spending is ₹4,184.28, while the 75th percentile is ₹28,085.88. Maximum customer spending reaches ₹787,135.98.
+
+Spending is also highly concentrated. The top 10% of purchasing customers (606 people) account for 47.97% of total spending. The top 20% contribute 65.21%, and the top 50% contribute 90.45%. The bottom half of purchasing customers therefore accounts for 9.55% of spending.
 
 ## What stood out?
 
@@ -18,7 +20,4 @@ Both spending and purchase frequency are strongly right-skewed. Most purchasing 
 
 The delivered-order data spans 90 days, from 16 March to 14 June 2026. This is a relatively short observation window, so the findings describe recent purchasing behaviour rather than long-term customer loyalty or annual seasonality.
 
-**Analytical note:** Customer spending is calculated as the sum of
-`order_items.line_total` for delivered orders. Refunds and returns
-are not deducted from customer-level spending because item-level
-return matching was not established.
+**Analytical note:** Customer spending is calculated using `orders.total` for delivered orders, less successful refunds recorded in the refund dataset. Product revenue analysis separately uses `order_items.line_total`.
